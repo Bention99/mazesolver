@@ -52,20 +52,20 @@ class Cell():
         self.__y2 = -1
         self.__win = win
 
-    def draw(self, new_x1, new_x2, new_y1, new_y2):
-        self.__x1 = new_x1
-        self.__x2 = new_x1
-        self.__y1 = new_y1
-        self.__y2 = new_y2
+    def draw(self, x1, y1, x2, y2):
+        self.__x1 = x1
+        self.__x2 = x2
+        self.__y1 = y1
+        self.__y2 = y2
         if self.has_left_wall:
-            line = Line(Point(new_x1, new_y1), Point(new_y1, new_y2))
+            line = Line(Point(x1, y1), Point(x1, y2))
             self.__win.draw_line(line)
         if self.has_top_wall:
-            line = Line(Point(new_x1, new_y1), Point(new_y1, new_y2))
+            line = Line(Point(x1, y1), Point(x2, y1))
             self.__win.draw_line(line)
         if self.has_right_wall:
-            line = Line(Point(new_x1, new_y1), Point(new_y1, new_y2))
+            line = Line(Point(x2, y1), Point(x2, y2))
             self.__win.draw_line(line)
         if self.has_bottom_wall:
-            line = Line(Point(new_x1, new_y1), Point(new_y1, new_y2))
+            line = Line(Point(x1, y2), Point(x2, y2))
             self.__win.draw_line(line)

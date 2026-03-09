@@ -16,8 +16,7 @@ def main():
     c.draw(225, 225, 250, 250)
 
     c = Cell(win)
-    c.has_top_wall = True
-    c.has_bottom_wall = True
+    c.has_top_wall = False
     c.draw(300, 300, 500, 500)
 
     win.wait_for_close()
