@@ -40,7 +40,7 @@ class Line:
    def draw(self, canvas, fill_color="black"):
     canvas.create_line(self.p1.x, self.p1.y, self.p2.x, self.p2.y, fill=fill_color, width=2)
 
-class Cell():
+class Cell:
     def __init__(self, win):
         self.has_left_wall = True
         self.has_right_wall = True
@@ -69,3 +69,17 @@ class Cell():
         if self.has_bottom_wall:
             line = Line(Point(x1, y2), Point(x2, y2))
             self.__win.draw_line(line)
+
+    def draw_move(self, to_cell, undo=False):
+        color = "red"
+        if undo:
+            color = "gray"
+
+        center_x = (self.__x1 + self.__x2) / 2
+        center_y = (self.__y1 + self.__y2) / 2
+
+        next_center_x = (to_cell.__x1 + to_cell.__x2) / 2
+        next_center_y = (to_cell.__y1 + to_cell.__y2) / 2
+
+        line = Line(Point(center_x, center_y), Point(next_center_x, next_center_y))
+        self.__win.draw_line(line)
